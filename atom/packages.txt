@@ -1,0 +1,8 @@
+file-icons
+floobits
+highlight-selected
+linter
+linter-javac
+minimap
+open-terminal-here
+theme-switcher
