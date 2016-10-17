@@ -13,4 +13,4 @@ omf install fasd
 source abbr.fish
 
 # symlink stuff
-ln -isv "$HOME/dotfiles/fish/config.fish" "$HOME/.config/fish/config.fish"
+ln -isv "~/dotfiles/fish/config.fish" "~/.config/fish/config.fish"

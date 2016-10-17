@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
 # symlink stuff
-ln -isv "$HOME/dotfiles/git/gitconfig" "$HOME/.gitconfig"
-ln -isv "$HOME/dotfiles/git/gitignore" "$HOME/.gitignore"
+ln -isv "~/dotfiles/git/gitconfig" "~/.gitconfig"
+ln -isv "~/dotfiles/git/gitignore" "~/.gitignore"

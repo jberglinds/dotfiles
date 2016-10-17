@@ -11,7 +11,7 @@ set fish_greeting ""
 
 # set prompt to powerline-shell
 function fish_prompt
-    eval $HOME/dotfiles/fish/powerline-shell.py $status --shell bare ^/dev/null
+    ~/dotfiles/fish/powerline-shell.py $status --shell bare ^/dev/null
 end
 
 # ssh and sftp to kth servers
@@ -52,4 +52,7 @@ alias mv='mv -i'
 # git stuff
 alias git='hub'
 
-alias grep=‘grep --color=auto’
+alias grep='grep --color=auto'
+
+alias showFiles='defaults write com.apple.finder AppleShowAllFiles YES; killall Finder /System/Library/CoreServices/Finder.app'
+alias hideFiles='defaults write com.apple.finder AppleShowAllFiles NO; killall Finder /System/Library/CoreServices/Finder.app'
