@@ -1,0 +1,38 @@
+cask_args appdir: '/Applications'
+
+tap 'caskroom/cask'
+tap 'homebrew/bundle'
+
+# stuff
+brew 'coreutils'
+brew 'git'
+brew 'git-lfs'
+brew 'hub'
+brew 'openssl'
+brew 'wget'
+brew 'httpie'
+
+# programming languages
+brew 'node'
+brew 'python'
+brew 'python3'
+
+# fish
+brew 'fish'
+brew 'fasd'
+
+# cask apps
+#cask '1password'
+#cask 'alfred'
+cask 'java'
+cask 'dropbox'
+cask 'google-chrome'
+cask 'slack'
+cask 'spectacle'
+cask 'spotify'
+cask 'sublime-text'
+cask 'atom'
+cask 'transmission'
+cask 'vlc'
+cask 'iterm2'
+cask 'couleurs'
