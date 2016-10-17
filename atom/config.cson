@@ -1,0 +1,29 @@
+"*":
+  core:
+    ignoredNames: [
+      ".git"
+      ".hg"
+      ".svn"
+      ".DS_Store"
+      "._*"
+      "Thumbs.db"
+      "*.class"
+    ]
+    telemetryConsent: "limited"
+    useCustomTitleBar: true
+  editor:
+    fontFamily: "Input Sans"
+    showIndentGuide: true
+    softTabs: false
+    tabLength: 4
+  "exception-reporting":
+    userId: "c2614a4c-ea22-fb0c-6791-6b5f39509dea"
+  tabs:
+    usePreviewTabs: true
+  "theme-switcher":
+    syntaxThemeOne: "one-dark-syntax"
+    syntaxThemeTwo: "one-light-syntax"
+  "tree-view":
+    hideIgnoredNames: true
+  welcome:
+    showOnStartup: false
