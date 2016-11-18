@@ -19,9 +19,9 @@ function kth
   switch $argv[1]
   case ssh
     if set -q argv[2]
-      ssh $argv[2]@u-shell.csc.kth.se
+      ssh $argv[2]@u-shell.csc.kth.se -XY
     else
-      ssh 'jonatber@u-shell.csc.kth.se'
+      ssh 'jonatber@u-shell.csc.kth.se' -XY
     end
   case sftp
     if set -q argv[2]
