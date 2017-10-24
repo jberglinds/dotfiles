@@ -14,22 +14,41 @@ function fish_prompt
     ~/dotfiles/fish/powerline-shell.py $status --shell bare ^/dev/null
 end
 
-# ssh and sftp to kth servers
-function kth
-  switch $argv[1]
-  case ssh
-    if set -q argv[2]
-      ssh $argv[2]@u-shell.csc.kth.se -XY
-    else
-      ssh 'jonatber@u-shell.csc.kth.se' -XY
-    end
-  case sftp
-    if set -q argv[2]
-      sftp $argv[2]@u-shell.csc.kth.se
-    else
-      sftp 'jonatber@u-shell.csc.kth.se'
-    end
-  end
+# easy ssh to kth servers
+function ssh
+	if set -q argv[1]
+		switch $argv[1]
+	case kth
+		if set -q argv[2]
+			ssh $argv[2]@u-shell.csc.kth.se -XY
+		else
+			ssh 'jonatber@u-shell.csc.kth.se'
+		end
+	case '*'
+		command ssh $argv
+	end
+	else
+		command ssh
+	end
+end
+
+# easy sftp to kth servers
+function sftp
+	if set -q argv[1]
+		switch $argv[1]
+	case kth
+		if set -q argv[2]
+			sftp $argv[2]@u-shell.csc.kth.se
+		else
+			sftp 'jonatber@u-shell.csc.kth.se'
+		end
+	case '*'
+		command sftp $argv
+	end
+	else
+		command sftp
+	end
+end
 end
 
 # moving around folders
