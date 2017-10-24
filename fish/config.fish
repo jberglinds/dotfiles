@@ -11,7 +11,13 @@ set fish_greeting ""
 
 # set prompt to powerline-shell
 function fish_prompt
-    ~/dotfiles/fish/powerline-shell.py $status --shell bare ^/dev/null
+	~/dotfiles/fish/powerline-shell.py $status --shell bare ^/dev/null
+end
+
+# ctrl-p searches files with fzf and opens in vim
+function fish_user_key_bindings
+	bind \cp 'fzf | read -l result; and vim $result';
+	fzf_key_bindings
 end
 
 # easy ssh to kth servers
@@ -49,6 +55,13 @@ function sftp
 		command sftp
 	end
 end
+
+# Use ripgrep for fzf by default
+set FZF_DEFAULT_COMMAND 'rg --files --no-ignore --hidden --follow -g "!{.git,node_modules}/*" 2> /dev/null'
+
+# fasd without args uses fzf
+function z
+	set -l dir (fasd -Rdl $argv[1] | fzf -1 -0 --no-sort +m); and cd $dir; return 1
 end
 
 # moving around folders
