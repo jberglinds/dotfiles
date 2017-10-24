@@ -23,7 +23,7 @@ Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
 call plug#end()
 
 " Remap space key to leader
-map <Space> \
+map <Space> <Leader>
 
 " Filetype-specific indenting, syntax highlighting, omni-completion etc.
 filetype plugin indent on
