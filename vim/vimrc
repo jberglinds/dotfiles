@@ -1,5 +1,6 @@
-" vim-plug plugins
+"" vim-plug plugins
 call plug#begin('~/.vim/plugged')
+Plug 'tpope/vim-sensible'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'rakr/vim-one'
@@ -25,42 +26,15 @@ call plug#end()
 " Remap space key to leader
 map <Space> <Leader>
 
-" Filetype-specific indenting, syntax highlighting, omni-completion etc.
-filetype plugin indent on
-
-" Enable syntax highlighting
-syntax on
-
-" Allows matching with % on more than just ({[
-runtime! macros/matchit.vim
-
-" Automatic indenting for any filetype
-set autoindent
-
-" Better command-line completion
-set wildmenu
-
 " Show partial commands in the last line of the screen
-set showcmd
+" set showcmd
 
 " Highlight search hits
 set hlsearch
 
-" Search incrementally without pressing enter
-set incsearch
-
 " Use case insensitive search, except when using capital letters
 set ignorecase
 set smartcase
-
-" Allow backspacing over autoindent, line breaks and a start of insert action
-set backspace=indent,eol,start
-
-" Display the cursor position on the last line or in the status line of window
-set ruler
-
-" Always display the status line
-set laststatus=2
 
 " Instead of failing command because of unsaved changes, raise a dialog to ask
 " for save
@@ -68,9 +42,6 @@ set confirm
 
 " Allow switching buffers without saving
 set hidden
-
-" Reload files with changes made elsewhere
-set autoread
 
 " Don't make a sound or flash when doing something wrong
 set visualbell
@@ -100,13 +71,6 @@ set relativenumber
 set shiftwidth=4
 set tabstop=4
 
-" True color support in iTerm
-if (empty($TMUX))
-	if (has("termguicolors"))
-		set termguicolors
-	endif
-endif
-
 " Activate rainbow parentheses for lisps
 augroup rainbow_lisp
   autocmd!
@@ -119,7 +83,6 @@ let g:airline_powerline_fonts=1
 let g:airline_extensions = ['tabline', 'ale']
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#ale#enabled = 1
-set ttimeoutlen=10
 
 " Switch keyboards automatically between normal and insert
 let g:XkbSwitchEnabled = 1
@@ -127,7 +90,7 @@ let g:XkbSwitchLib = '/usr/local/lib/libxkbswitch.dylib'
 
 " Disable mappings for golden view by default and add the split mapping
 let g:goldenview__enable_default_mapping = 0
-nmap <silent> <C-L>  <Plug>GoldenViewSplit
+nmap <silent> <C-L> <Plug>GoldenViewSplit
 
 " Search buffers with fzf
 nmap <Leader>b :Buffers<CR>
@@ -139,4 +102,3 @@ colorscheme one
 
 " Mark 80th column
 set colorcolumn=80
-
