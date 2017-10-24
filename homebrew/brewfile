@@ -11,15 +11,23 @@ brew 'hub'
 brew 'openssl'
 brew 'wget'
 brew 'httpie'
+brew 'tmux'
+brew 'ripgrep'
+brew 'the_silver_searcher'
+brew 'fzf'
+brew 'wifi-password'
+brew 'vim'
 
 # programming languages
 brew 'node'
+brew 'yarn'
 brew 'python'
 brew 'python3'
 
 # fish
 brew 'fish'
 brew 'fasd'
+brew 'thefuck'
 
 # cask apps
 #cask '1password'
