@@ -1,55 +1,61 @@
 [user]
-    name = Jonathan Berglind
-    email = jonathan.berglind@gmail.com
+	name = Jonathan Berglind
+	email = jonathan.berglind@gmail.com
 
 [alias]
-    a = add
-    s = status -s
-    c = commit
-    d = diff
-    p = pull --rebase
-    pr = pull-request
-    l = log --format=babe
+	a = add
+	s = status -s
+	c = commit
+	d = diff
+	p = pull --rebase
+	pr = pull-request
+	l = log --format=babe
 
-    tags = tag -l
-    branches = branch -a
-    remotes = remote -v
+	tags = tag -l
+	branches = branch -a
+	remotes = remote -v
 
-    # List contributors with number of commits
-    contributors = shortlog --summary --numbered
+	# List contributors with number of commits
+	contributors = shortlog --summary --numbered
 
 [apply]
-    # Detect whitespace errors when applying a patch
-    whitespace = fix
+	# Detect whitespace errors when applying a patch
+	whitespace = fix
 
 [color]
-    diff = auto
-    status = auto
-    branch = auto
-    ui = true
+	diff = auto
+	status = auto
+	branch = auto
+	ui = true
 
 [color "status"]
-    added = green
-    changed = yellow
-    untracked = red
+	added = green
+	changed = yellow
+	untracked = red
 
 [core]
-    # Treat spaces before tabs and all kinds of trailing whitespace as an error
-    # [default] trailing-space: looks for spaces at the end of a line
-    # [default] space-before-tab: looks for spaces before tabs at the beginning of a line
-    whitespace = space-before-tab,-indent-with-non-tab,trailing-space
-	editor = nano
-    excludesfile = ~/.gitignore
+	# Treat spaces before tabs and all kinds of trailing whitespace as an error
+	# [default] trailing-space: looks for spaces at the end of a line
+	# [default] space-before-tab: looks for spaces before tabs at the beginning of a line
+	whitespace = space-before-tab,-indent-with-non-tab,trailing-space
+	editor = vim
+	excludesfile = ~/.gitignore
 
 [diff]
-    # Detect copies as well as renames
-    renames = copies
+	# Detect copies as well as renames
+	renames = copies
 
 [help]
-    autocorrect = 1
+	autocorrect = 1
 
 [pretty]
-    babe = %Cred%h %Creset %<(80)%s %<(20)%an %Cgreen %<(10)(%cr) %Creset
+	babe = %Cred%h%Creset %<(80)%s %<(20)%an %Cgreen%<(10)(%cr)%Creset
 
 [push]
-    default = simple
+	default = simple
+
+[filter "lfs"]
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
