@@ -65,11 +65,11 @@ set cmdheight=2
 
 " Display line-numbers on the left
 set number
-set relativenumber
 
-" Indentation settings, use hard tabs - 4 spaces wide
-set shiftwidth=4
-set tabstop=4
+" Indentation settings, use soft tabs - 2 spaces
+set shiftwidth=2
+set tabstop=2
+set expandtab
 
 " Activate rainbow parentheses for lisps
 augroup rainbow_lisp
