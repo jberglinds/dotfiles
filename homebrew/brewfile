@@ -17,6 +17,7 @@ brew 'the_silver_searcher'
 brew 'fzf'
 brew 'wifi-password'
 brew 'vim'
+brew 'cloc'
 
 # programming languages
 brew 'node'
