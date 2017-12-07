@@ -102,3 +102,9 @@ colorscheme one
 
 " Mark 80th column
 set colorcolumn=80
+
+" Highlighting unwanted spaces/tabs
+highlight TabHighlight ctermbg=236
+highlight ExtraWhitespace ctermbg=236 guibg=#2c323c
+match TabHighlight /\t/
+match ExtraWhitespace /\s\+$/
