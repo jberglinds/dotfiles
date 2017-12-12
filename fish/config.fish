@@ -49,7 +49,7 @@ function sftp
 end
 
 # Use ripgrep for fzf by default
-set FZF_DEFAULT_COMMAND 'rg --files --no-ignore --hidden --follow -g "!{.git,node_modules}/*" 2> /dev/null'
+set -x FZF_DEFAULT_COMMAND 'rg --files --hidden --follow -g "!{.git,node_modules}/*" 2> /dev/null'
 
 # fasd without args uses fzf
 function z
