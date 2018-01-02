@@ -127,3 +127,9 @@ highlight TabHighlight ctermbg=236
 highlight ExtraWhitespace ctermbg=236 guibg=#2c323c
 match TabHighlight /\t/
 match ExtraWhitespace /\s\+$/
+
+" Fixers to use with ALE
+let g:ale_fixers = {
+\   'javascript': ['eslint'],
+\   'typescript': ['tslint'],
+\}
