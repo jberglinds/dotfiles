@@ -2,8 +2,7 @@
 call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-sensible'
 Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'rakr/vim-one'
+Plug 'joshdick/onedark.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
@@ -91,7 +90,7 @@ augroup rainbow_lisp
 augroup END
 
 " vim airline settings
-let g:airline_theme='one'
+let g:airline_theme='onedark'
 let g:airline_powerline_fonts=1
 let g:airline_extensions = ['tabline', 'ale']
 let g:airline#extensions#tabline#enabled = 1
@@ -108,10 +107,15 @@ nmap <silent> <C-L> <Plug>GoldenViewSplit
 " Search buffers with fzf
 nmap <Leader>b :Buffers<CR>
 
-" Theme settings, needs to be ordered like this
-set termguicolors
-set background=dark
-colorscheme one
+" True colors for colorscheme
+if (has("termguicolors"))
+  set termguicolors
+endif
+
+" Colorscheme settings
+syntax on
+let g:onedark_terminal_italics=1
+colorscheme onedark
 
 " Mark 80th column
 set colorcolumn=80
