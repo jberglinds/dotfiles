@@ -128,6 +128,9 @@ highlight ExtraWhitespace ctermbg=236 guibg=#2c323c
 match TabHighlight /\t/
 match ExtraWhitespace /\s\+$/
 
+" Hide stuff like scrollbars in macVim
+set guioptions=
+
 " Fixers to use with ALE
 let g:ale_fixers = {
 \   'javascript': ['eslint'],
