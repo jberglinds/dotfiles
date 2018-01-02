@@ -18,6 +18,8 @@ Plug 'mbbill/undotree'
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/rainbow_parentheses.vim'
 Plug 'editorconfig/editorconfig-vim'
+Plug 'rizzatti/dash.vim'
+
 " Deoplete auto completion with plugins
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -130,6 +132,9 @@ match ExtraWhitespace /\s\+$/
 
 " Hide stuff like scrollbars in macVim
 set guioptions=
+
+" Search word under cursor in Dash using K
+set keywordprg=:Dash
 
 " Fixers to use with ALE
 let g:ale_fixers = {
