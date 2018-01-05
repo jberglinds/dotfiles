@@ -33,6 +33,9 @@ endif
 Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
 call plug#end()
 
+" Edit vimrc using :Vimconf
+command! Vimconf :edit $MYVIMRC
+
 " Enable deoplete at startup
 let g:deoplete#enable_at_startup = 1
 " use tab to forward cycle
