@@ -20,7 +20,7 @@ function ssh
 		if set -q argv[2]
 			ssh $argv[2]@u-shell.csc.kth.se -XY
 		else
-			ssh 'jonatber@u-shell.csc.kth.se'
+			ssh 'jonatber@u-shell.csc.kth.se' -XY
 		end
 	case '*'
 		command ssh $argv
