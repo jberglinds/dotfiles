@@ -18,6 +18,7 @@ brew 'fzf'
 brew 'wifi-password'
 brew 'vim'
 brew 'cloc'
+brew 'tldr'
 
 # programming languages
 brew 'node'
