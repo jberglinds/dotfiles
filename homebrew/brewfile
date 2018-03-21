@@ -19,6 +19,8 @@ brew 'wifi-password'
 brew 'vim'
 brew 'cloc'
 brew 'tldr'
+brew 'cowsay'
+brew 'lolcat'
 
 # programming languages
 brew 'node'
