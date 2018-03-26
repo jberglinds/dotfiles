@@ -131,13 +131,7 @@ set visualbell
 set t_vb=
 
 " Enable the mouse in all modes
-" set mouse=a
-
-" Disable arrow keys, for learning vim
-noremap <Up> <NOP>
-noremap <Down> <NOP>
-noremap <Left> <NOP>
-noremap <Right> <NOP>
+set mouse=a
 
 " Set the command window height to 2 lines, to avoid having to press enter in
 " some cases
