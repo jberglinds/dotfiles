@@ -109,11 +109,9 @@ let g:ale_fixers = {
 " Remap space key to leader
 map <Space> <Leader>
 
-" Show partial commands in the last line of the screen
-" set showcmd
-
-" Highlight search hits
+" Highlight search hits but clear highlight on escape
 set hlsearch
+nnoremap <silent> <esc> :noh<return><esc>
 
 " Use case insensitive search, except when using capital letters
 set ignorecase
@@ -144,7 +142,6 @@ set number
 set shiftwidth=2
 set tabstop=2
 set expandtab
-
 
 " True colors for colorscheme
 if (has("termguicolors"))
