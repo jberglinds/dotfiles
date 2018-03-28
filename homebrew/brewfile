@@ -17,7 +17,7 @@ brew 'ripgrep'
 brew 'the_silver_searcher'
 brew 'fzf'
 brew 'wifi-password'
-brew 'vim'
+brew 'macvim', args: ["with-override-system-vim"]
 brew 'cloc'
 brew 'tldr'
 brew 'cowsay'
