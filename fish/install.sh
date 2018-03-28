@@ -11,7 +11,7 @@ omf install fasd
 omf install bobthefish
 
 # add abbreviations
-source abbr.fish
+source ~/dotfiles/fish/abbr.fish
 
 # symlink stuff
-ln -isv "~/dotfiles/fish/config.fish" "~/.config/fish/config.fish"
+ln -isv ~/dotfiles/fish/config.fish ~/.config/fish/config.fish
