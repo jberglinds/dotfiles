@@ -1,10 +1,8 @@
 # remove annoying welcome message
 set fish_greeting ""
 
-# set prompt to powerline-shell
-function fish_prompt
-	~/dotfiles/fish/powerline-shell.py $status --shell bare ^/dev/null
-end
+# Use powerline symbols for bobthefish prompt
+set -g theme_powerline_fonts yes
 
 # ctrl-p searches files with fzf and opens in vim
 function fish_user_key_bindings

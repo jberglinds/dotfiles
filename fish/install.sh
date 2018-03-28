@@ -8,6 +8,7 @@ curl -L http://get.oh-my.fish | fish
 
 # install oh-my-fish packages
 omf install fasd
+omf install bobthefish
 
 # add abbreviations
 source abbr.fish
