@@ -1,6 +1,7 @@
 cask_args appdir: '/Applications'
 
 tap 'caskroom/cask'
+tap 'caskroom/fonts'
 tap 'homebrew/bundle'
 
 # stuff
@@ -33,8 +34,12 @@ brew 'fish'
 brew 'fasd'
 brew 'thefuck'
 
+# fonts
+cask 'font-input'
+cask 'font-iosevka'
+
 # cask apps
-#cask '1password'
+cask '1password'
 #cask 'alfred'
 cask 'java'
 cask 'dropbox'
