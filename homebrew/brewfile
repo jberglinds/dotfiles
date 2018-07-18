@@ -22,6 +22,7 @@ brew 'cloc'
 brew 'tldr'
 brew 'cowsay'
 brew 'lolcat'
+brew 'neovim'
 
 # programming languages
 brew 'node'
@@ -40,7 +41,7 @@ cask 'font-iosevka'
 
 # cask apps
 cask '1password'
-#cask 'alfred'
+cask 'alfred'
 cask 'java'
 cask 'dropbox'
 cask 'google-chrome'
@@ -54,3 +55,6 @@ cask 'vlc'
 cask 'iterm2'
 cask 'couleurs'
 cask 'flux'
+cask 'visual-studio-code'
+cask 'insomnia'
+cask 'dash'
