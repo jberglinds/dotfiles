@@ -26,15 +26,6 @@ Plug 'junegunn/rainbow_parentheses.vim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'rizzatti/dash.vim'
 
-" Deoplete auto completion with plugins
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-endif
-
 " Language specific
 Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
 call plug#end()
@@ -44,12 +35,6 @@ call plug#end()
 " Enable italics
 let g:onedark_terminal_italics=1
 
-" Deoplete {{{2
-" Enable on startup
-let g:deoplete#enable_at_startup = 1
-" Cycle suggestions by tabbing
-inoremap <silent><expr><s-tab> pumvisible() ? "\<c-p>" : "\<s-tab>"
-inoremap <silent><expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 
 " FZF {{{2
 " Invoke with CTRL-P
@@ -104,6 +89,8 @@ let g:ale_fixers = {
       \   'javascript': ['eslint'],
       \   'typescript': ['tslint'],
       \}
+" Setup completion
+let g:ale_completion_enabled = 1
 " }}}1
 
 " Remap space key to leader
