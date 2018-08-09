@@ -7,6 +7,7 @@ set -g theme_powerline_fonts yes
 # use neovim instead of vim
 alias vim nvim
 alias view 'nvim -R'
+alias vimdiff 'nvim -d'
 
 # ctrl-p searches files with fzf and opens in vim
 function fish_user_key_bindings
