@@ -1,30 +1,38 @@
-" vim: nowrap fdm=marker
+"l vim: nowrap fdm=marker
+set encoding=UTF-8
+
+" Export bash as shell for plugins
+let $SHELL = '/bin/bash'
 
 " Edit vimrc using :Vimconf
 command! Vimconf :edit $MYVIMRC
+
+" Set language to english
+set langmenu=en_US
+let $LANG = 'en_US'
 
 " Plugins {{{1
 " Using vim-plug: https://github.com/junegunn/vim-plug
 call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-sensible'
-Plug 'bling/vim-bufferline'
+Plug 'tpope/vim-repeat'
 Plug 'itchyny/lightline.vim'
+Plug 'mengelbrecht/lightline-bufferline'
 Plug 'joshdick/onedark.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-unimpaired'
-Plug 'lyokha/vim-xkbswitch'
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-surround'
-Plug 'w0rp/ale'
-Plug 'airblade/vim-gitgutter'
+Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
+" Plug 'w0rp/ale'
 Plug 'mbbill/undotree'
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/rainbow_parentheses.vim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'rizzatti/dash.vim'
+Plug 'exu/pgsql.vim'
 
 " Language specific
 Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
@@ -35,13 +43,12 @@ call plug#end()
 " Enable italics
 let g:onedark_terminal_italics=1
 
-
 " FZF {{{2
 " Invoke with CTRL-P
-map <c-p> :FZF<CR>
+map <silent> <c-p> :FZF<CR>
 
 " Search active buffers with Leader-B
-nmap <Leader>b :Buffers<CR>
+nmap <silent> <Leader>b :Buffers<CR>
 
 " Rainbow Parentheses {{{2
 " Activate for lisps
@@ -51,46 +58,115 @@ augroup rainbow_lisp
 augroup END
 
 " Lightline (+ Bufferline) {{{2
+" Always show tabline
+set showtabline=2
+
+" Show open buffers in tabline
 let g:lightline = {
       \ 'colorscheme': 'one',
       \ 'tabline': {
-      \   'left': [['bufferline']],
+      \   'left': [['buffers']],
       \   'right': []
       \ },
       \ 'component_expand': {
-      \   'bufferline': 'LightlineBufferline',
+      \   'buffers': 'lightline#bufferline#buffers',
       \ },
       \ 'component_type': {
-      \   'bufferline': 'tabsel',
+      \   'buffers': 'tabsel',
       \ },
       \ }
 
-" Show open buffers in tabline
-set showtabline=2
-let g:bufferline_active_buffer_left = ''
-let g:bufferline_active_buffer_right = ''
-function! LightlineBufferline()
-  call bufferline#refresh_status()
-  return [ g:bufferline_status_info.before, g:bufferline_status_info.current, g:bufferline_status_info.after]
-endfunction
-
-" vim-xkbswitch {{{2
-" Switch keyboards automatically between normal and insert
-let g:XkbSwitchEnabled = 1
-let g:XkbSwitchLib = '/usr/local/lib/libxkbswitch.dylib'
+" Show only name of files, not paths
+let g:lightline#bufferline#filename_modifier = ':t'
 
 " Dash {{{2
-" Set keywordprg to the Dash command to use it when pressing K
-set keywordprg=:Dash
+" Search word under cursor in Dash with Leader-D
+nnoremap <silent> <leader>d :Dash<CR>
+
+" coc.nvim {{{2
+" Smaller updatetime for CursorHold & CursorHoldI
+set updatetime=300
+
+" Don't give |ins-completion-menu| messages.
+set shortmess+=c
+
+" Keep signs column open
+set signcolumn=yes
+
+" Cycle completions using tab
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" Confirm completion with <CR>
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+
+" Remap keys for gotos
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" Show hover documentation in floating window with Leader-H
+nnoremap <silent> <Leader>h :call <SID>show_documentation()<CR>
+function! s:show_documentation()
+  if &filetype == 'vim'
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
+" Highlight symbol under cursor on CursorHold
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+" Rename word under cursor with Leader-R
+nmap <leader>r <Plug>(coc-rename)
+
+" Format selected region with Leader-F
+vmap <leader>f  <Plug>(coc-format-selected)
+
+augroup mygroup
+  autocmd!
+  " Setup formatexpr specified filetype(s).
+  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+  " Update signature help on jump placeholder
+  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+augroup end
 
 " ALE {{{2
-" Setup fixers
-let g:ale_fixers = {
-      \   'javascript': ['eslint'],
-      \   'typescript': ['tslint'],
-      \}
+
+" Use ballons for hover documentation if available
+" let g:ale_set_balloons = 1
+
+" Fix ALE inserting completions automatically
+" set completeopt=menu,menuone,preview,noselect,noinsert
+
+" Setup linters and fixers
+" let g:ale_linters = {
+"       \   'python': ['pyls'],
+"       \}
+" let g:ale_fixers = {
+"       \   'javascript': ['eslint', 'prettier'],
+"       \   'typescript': ['tslint'],
+"       \}
+
 " Setup completion
-let g:ale_completion_enabled = 1
+" let g:ale_completion_enabled = 1
+" Fix on save
+" let g:ale_fix_on_save = 1
+
+" let g:ale_lint_delay = 50
+
+" nnoremap <silent> <Leader>h :ALEHover<CR>
+" nnoremap <silent> gd :ALEGoToDefinition<CR>
 " }}}1
 
 " Remap space key to leader
@@ -118,8 +194,7 @@ set t_vb=
 " Enable the mouse in all modes
 set mouse=a
 
-" Set the command window height to 2 lines, to avoid having to press enter in
-" some cases
+" Set the command window height to 2 lines
 set cmdheight=2
 
 " Display line-numbers on the left
@@ -150,11 +225,3 @@ match ExtraWhitespace /\s\+$/
 
 " Hide stuff like scrollbars in macVim
 set guioptions=
-
-" Move lines up/down using CTRL-k/j
-nnoremap <C-j> :m .+1<CR>==
-nnoremap <C-k> :m .-2<CR>==
-inoremap <C-j> <Esc>:m .+1<CR>==gi
-inoremap <C-k> <Esc>:m .-2<CR>==gi
-vnoremap <C-k> :m '<-2<CR>gv=gv
-vnoremap <C-j> :m '>+1<CR>gv=gv
