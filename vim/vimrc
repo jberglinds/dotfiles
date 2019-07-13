@@ -5,7 +5,7 @@ set encoding=UTF-8
 let $SHELL = '/bin/bash'
 
 " Edit vimrc using :Vimconf
-command! Vimconf :edit $MYVIMRC
+command! Vimconf :edit ~/.vim/vimrc
 
 " Set language to english
 set langmenu=en_US
@@ -25,7 +25,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-commentary'
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-surround'
-Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Plug 'w0rp/ale'
 Plug 'mbbill/undotree'
 Plug 'jiangmiao/auto-pairs'
