@@ -9,7 +9,7 @@
   d = diff
   p = pull --rebase
   pr = pull-request
-  l = log --format=babe
+  l = log --format=compact
 
   tags = tag -l
   branches = branch -a
