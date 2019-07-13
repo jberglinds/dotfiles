@@ -1,4 +1,4 @@
-#!/usr/bin/env fish
+#!/usr/local/bin/fish
 
 # add fish as an acceptable shell
 which fish | sudo tee -a /etc/shells > /dev/null
