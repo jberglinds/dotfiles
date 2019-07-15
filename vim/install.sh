@@ -7,6 +7,7 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 
 # symlink dotfiles vimrc to .vim/vimrc
 ln -isv ~/dotfiles/vim/vimrc ~/.vim/vimrc
+ln -isv ~/dotfiles/vim/init.vim ~/.config/nvim/init.vim
 
 # install plugins
 nvim -c ':PlugInstall' -c 'qa!'
