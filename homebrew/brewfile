@@ -3,6 +3,7 @@ cask_args appdir: '/Applications'
 tap 'caskroom/cask'
 tap 'caskroom/fonts'
 tap 'homebrew/bundle'
+tap 'homebrew/cask-drivers'
 
 # stuff
 brew 'coreutils'
@@ -58,3 +59,4 @@ cask 'visual-studio-code'
 cask 'insomnia'
 cask 'dash'
 cask 'fantastical'
+cask 'sonos'
