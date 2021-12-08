@@ -1,7 +1,7 @@
 cask_args appdir: '/Applications'
 
-tap 'caskroom/cask'
-tap 'caskroom/fonts'
+tap 'homebrew/cask-fonts'
+tap 'homebrew/cask'
 tap 'homebrew/bundle'
 tap 'homebrew/cask-drivers'
 
@@ -24,6 +24,8 @@ brew 'cowsay'
 brew 'lolcat'
 brew 'neovim'
 brew 'jq'
+brew 'tmux'
+
 
 # programming languages
 brew 'node'
@@ -37,26 +39,21 @@ brew 'fasd'
 brew 'thefuck'
 
 # fonts
-cask 'font-input'
 cask 'font-iosevka'
 
 # cask apps
+cask 'raycast'
 cask '1password'
-cask 'alfred'
-cask 'java'
+cask 'docker'
 cask 'google-chrome'
 cask 'slack'
-cask 'spectacle'
 cask 'spotify'
-cask 'sublime-text'
-cask 'atom'
 cask 'transmission'
 cask 'vlc'
 cask 'iterm2'
 cask 'couleurs'
-cask 'flux'
 cask 'visual-studio-code'
-cask 'insomnia'
 cask 'dash'
-cask 'fantastical'
 cask 'sonos'
+cask 'notion'
+cask 'dash'
