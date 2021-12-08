@@ -40,6 +40,8 @@
   whitespace = space-before-tab,-indent-with-non-tab,trailing-space
   editor = nvim
   excludesfile = ~/.gitignore
+	pager = diff-so-fancy | less --tabs=4 -RFX
+	attributesfile = /Users/jonathan/.gitattributes
 
 [diff]
   # Detect copies as well as renames
@@ -52,7 +54,7 @@
   compact = %C(red)%h %>(18,trunc)%C(yellow)%an%C(reset) %<(50,trunc)%s %C(green)(%cr)%C(reset)
 
 [push]
-  default = simple
+  default = current
 
 [filter "lfs"]
   smudge = git-lfs smudge -- %f
@@ -62,3 +64,15 @@
 
 [commit]
   verbose = true
+[color "diff-highlight"]
+	oldNormal = red bold
+	oldHighlight = red bold 52
+	newNormal = green bold
+	newHighlight = green bold 22
+[color "diff"]
+	meta = 11
+	frag = magenta bold
+	commit = yellow bold
+	old = red bold
+	new = green bold
+	whitespace = red reverse

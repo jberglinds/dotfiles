@@ -1,6 +1,8 @@
 # remove annoying welcome message
 set fish_greeting ""
 
+set -x LANG "en_US.UTF-8"
+
 # Use powerline symbols for bobthefish prompt
 set -g theme_powerline_fonts yes
 
@@ -96,3 +98,8 @@ alias vimconf='vim ~/.vim/vimrc'
 
 # iTerm2 shell integration
 test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shell_integration.fish
+
+# KRY config
+if test -e ~/.config/fish/kry_config.fish
+	source ~/.config/fish/kry_config.fish
+end

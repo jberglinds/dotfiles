@@ -1,8 +1,25 @@
 "l vim: nowrap fdm=marker
 set encoding=UTF-8
 
+" let g:clipboard = {
+"   \ 'name': 'pbcopy',
+"   \ 'copy': {
+"   \    '+': 'pbcopy',
+"   \    '*': 'pbcopy',
+"   \  },
+"   \ 'paste': {
+"   \    '+': 'pbpaste',
+"   \    '*': 'pbpaste',
+"   \ },
+"   \ 'cache_enabled': 0,
+"   \ }
+
 " Export bash as shell for plugins
 let $SHELL = '/bin/bash'
+if has('mac')
+    set shell=/bin/bash\ --login
+    set shellcmdflag=-c
+endif
 
 " Edit vimrc using :Vimconf
 command! Vimconf :edit ~/.vim/vimrc
@@ -19,10 +36,10 @@ Plug 'tpope/vim-repeat'
 Plug 'itchyny/lightline.vim'
 Plug 'mengelbrecht/lightline-bufferline'
 Plug 'joshdick/onedark.vim'
-Plug 'scrooloose/nerdtree'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-unimpaired'
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-surround'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -33,10 +50,17 @@ Plug 'junegunn/rainbow_parentheses.vim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'rizzatti/dash.vim'
 Plug 'exu/pgsql.vim'
+Plug 'tpope/vim-vinegar'
+Plug 'tpope/vim-fugitive'
+" Plug 'jberglinds/coc-jira-autocomplete', {'do': 'yarn install --frozen-lockfile'}
 
 " Language specific
+Plug 'tpope/vim-dispatch', { 'for': 'clojure' }
+Plug 'tpope/vim-salve', { 'for': 'clojure' }
 Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
 call plug#end()
+
+let g:salve_auto_start_repl=1
 
 " Plugin configuration
 " onedark.vim {{{2
@@ -49,6 +73,10 @@ map <silent> <c-p> :FZF<CR>
 
 " Search active buffers with Leader-B
 nmap <silent> <Leader>b :Buffers<CR>
+
+let g:fzf_action = {
+  \ 'ctrl-v': 'vsplit' }
+
 
 " Rainbow Parentheses {{{2
 " Activate for lisps
@@ -225,3 +253,8 @@ match ExtraWhitespace /\s\+$/
 
 " Hide stuff like scrollbars in macVim
 set guioptions=
+
+" Format whole file using prettier
+command! -nargs=0 Prettier :CocCommand prettier.formatFile
+
+let g:netrw_keepdir=0
