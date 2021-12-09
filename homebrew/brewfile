@@ -24,8 +24,7 @@ brew 'cowsay'
 brew 'lolcat'
 brew 'neovim'
 brew 'jq'
-brew 'tmux'
-
+brew 'diff-so-fancy'
 
 # programming languages
 brew 'node'
