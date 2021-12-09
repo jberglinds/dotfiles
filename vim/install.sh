@@ -11,3 +11,6 @@ ln -isv ~/dotfiles/vim/init.vim ~/.config/nvim/init.vim
 
 # install plugins
 nvim -c ':PlugInstall' -c 'qa!'
+
+# IDEAVim
+ln -isv ~/dotfiles/vim/ideavimrc ~/.ideavimrc
