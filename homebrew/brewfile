@@ -25,6 +25,7 @@ brew 'lolcat'
 brew 'neovim'
 brew 'jq'
 brew 'diff-so-fancy'
+brew 'bat'
 
 # programming languages
 brew 'node'
