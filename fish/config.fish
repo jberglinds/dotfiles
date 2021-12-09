@@ -3,6 +3,8 @@ set fish_greeting ""
 
 set -x LANG "en_US.UTF-8"
 
+fish_add_path /opt/homebrew/bin
+
 # Use powerline symbols for bobthefish prompt
 set -g theme_powerline_fonts yes
 

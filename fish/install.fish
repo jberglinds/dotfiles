@@ -1,5 +1,3 @@
-#!/usr/local/bin/fish
-
 # add fish as an acceptable shell
 which fish | sudo tee -a /etc/shells > /dev/null
 
@@ -7,7 +5,7 @@ which fish | sudo tee -a /etc/shells > /dev/null
 chsh -s (which fish)
 
 # install oh-my-fish
-curl -L http://get.oh-my.fish | fish
+curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
 
 # install oh-my-fish packages
 omf install fasd
