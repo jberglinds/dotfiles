@@ -27,6 +27,7 @@ brew 'jq'
 brew 'diff-so-fancy'
 brew 'bat'
 brew 'gh'
+brew 'mysql-client'
 
 # programming languages
 brew 'node'
