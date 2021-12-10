@@ -28,6 +28,7 @@ brew 'diff-so-fancy'
 brew 'bat'
 brew 'gh'
 brew 'mysql-client'
+brew 'awscli'
 
 # programming languages
 brew 'node'
