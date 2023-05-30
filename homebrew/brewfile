@@ -29,6 +29,8 @@ brew 'bat'
 brew 'gh'
 brew 'mysql-client'
 brew 'awscli'
+brew 'docker'
+brew 'colima'
 
 # programming languages
 brew 'node'
@@ -47,7 +49,6 @@ cask 'font-iosevka'
 # cask apps
 cask 'raycast'
 cask '1password'
-cask 'docker'
 cask 'google-chrome'
 cask 'slack'
 cask 'spotify'

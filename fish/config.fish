@@ -7,6 +7,7 @@ fish_add_path /opt/homebrew/bin
 
 # Use powerline symbols for bobthefish prompt
 set -g theme_powerline_fonts yes
+set -g theme_color_scheme light
 
 # use neovim instead of vim
 alias vim nvim
@@ -101,7 +102,17 @@ alias vimconf='vim ~/.vim/vimrc'
 # iTerm2 shell integration
 test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shell_integration.fish
 
+
+set -x TESTCONTAINERS_DOCKER_SOCKET_OVERRIDE /var/run/docker.sock
+set -x DOCKER_HOST "unix://$HOME/.colima/docker.sock"
+
+fish_add_path /opt/homebrew/opt/mysql-client/bin
+fish_add_path ~/.emacs.d/bin
+
 # KRY config
 if test -e ~/.config/fish/kry_config.fish
 	source ~/.config/fish/kry_config.fish
 end
+
+# Created by `pipx` on 2022-12-23 09:12:51
+set PATH $PATH /Users/jonathan/.local/bin

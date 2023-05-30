@@ -19,9 +19,6 @@ nnoremap <silent> <esc> :noh<return><esc>
 
 " These shortcuts work best if you have <leader> mapped to something convenient like ',' or '<Space>'
 
-" Load your regular .vimrc
-source ~/.vimrc
-
 " vim delete and change, with sexps!
 map <leader>x :action :cursive.actions.paredit/kill-sexp<CR>
 map <leader>d :action :cursive.actions.paredit/kill<CR>
@@ -41,27 +38,29 @@ map <leader>k :action :cursive.actions.paredit/splice-killing-backwards<CR>
 map <leader>j :action :cursive.actions.paredit/splice-killing-forwards<CR>
 
 " Slurp and barf
-map <leader>l :action :cursive.actions.paredit/barf-forwards<CR> 
-map <leader>h :action :cursive.actions.paredit/slurp-forwards<CR>
-map <leader>L :action :cursive.actions.paredit/slurp-backwards<CR>
-map <leader>H :action :cursive.actions.paredit/barf-backwards<CR> 
-" Slurp and barf tpope bindings
+" map <leader>l :action :cursive.actions.paredit/barf-forwards<CR> 
+" map <leader>h :action :cursive.actions.paredit/slurp-forwards<CR>
+" map <leader>L :action :cursive.actions.paredit/slurp-backwards<CR>
+" map <leader>H :action :cursive.actions.paredit/barf-backwards<CR> 
+" " Slurp and barf tpope bindings
 map <) :action :cursive.actions.paredit/barf-forwards<CR> 
 map >) :action :cursive.actions.paredit/slurp-forwards<CR>
 map <( :action :cursive.actions.paredit/slurp-backwards<CR>
 map >( :action :cursive.actions.paredit/barf-backwards<CR> 
 
-" leader + wrapping symbol for wrapping
+" " leader + wrapping symbol for wrapping
 map <leader>( :action :cursive.actions.paredit/wrap-paren<CR>
 map <leader>[ :action :cursive.actions.paredit/wrap-square<CR>
 map <leader>{ :action :cursive.actions.paredit/wrap-curly<CR>
 map <leader>" :action :cursive.actions.paredit/wrap-quotes<CR>
 
-" Cycle collection
+" " Cycle collection
 map <leader>C :action :cursive.actions.paredit/cycle-collection-type<CR>
 
-" Evaluate sexp like in vim-fireplace
+" " Evaluate sexp like in vim-fireplace
 map cpp :action :cursive.repl.actions/run-top-sexp<CR>
 
 " Force a single "parinference" when in paredit mode and reformat
-" map <leader>rp :action :cursive.actions.paredit/toggle<CR>:action :cursive.actions.paredit/toggle<CR>kj:action :cursive.actions.paredit/toggle<CR>:action ReformatCode<CR>
+map <leader>rp :action :cursive.actions.paredit/toggle<CR>:action :cursive.actions.paredit/toggle<CR>kj:action :cursive.actions.paredit/toggle<CR>:action ReformatCode<CR>
+
+" nnoremap K :action SmartSearchAction<CR>

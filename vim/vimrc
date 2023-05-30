@@ -33,6 +33,7 @@ let $LANG = 'en_US'
 call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-rsi'
 Plug 'itchyny/lightline.vim'
 Plug 'mengelbrecht/lightline-bufferline'
 Plug 'joshdick/onedark.vim'
@@ -52,7 +53,7 @@ Plug 'rizzatti/dash.vim'
 Plug 'exu/pgsql.vim'
 Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-fugitive'
-" Plug 'jberglinds/coc-jira-autocomplete', {'do': 'yarn install --frozen-lockfile'}
+Plug 'jberglinds/coc-jira-autocomplete', {'do': 'yarn install --frozen-lockfile'}
 
 " Language specific
 Plug 'tpope/vim-dispatch', { 'for': 'clojure' }

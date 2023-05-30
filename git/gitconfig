@@ -10,6 +10,7 @@
   p = pull --rebase
   pr = pull-request
   l = log --format=compact
+  dunk = "!f() { git diff \"${1:-HEAD}\" | dunk | less -R; }; f"
 
   tags = tag -l
   branches = branch -a
@@ -38,9 +39,9 @@
   # [default] trailing-space: looks for spaces at the end of a line
   # [default] space-before-tab: looks for spaces before tabs at the beginning of a line
   whitespace = space-before-tab,-indent-with-non-tab,trailing-space
+  pager = diff-so-fancy | less --tabs=4 -RFX
   editor = nvim
   excludesfile = ~/.gitignore
-  pager = diff-so-fancy | less --tabs=4 -RFX
   attributesfile = ~/.gitattributes
 
 [diff]
@@ -55,6 +56,7 @@
 
 [push]
   default = current
+	autoSetupRemote = true
 
 [filter "lfs"]
   smudge = git-lfs smudge -- %f
@@ -76,3 +78,7 @@
   old = red bold
   new = green bold
   whitespace = red reverse
+[branch]
+	autosetupmerge = always
+[init]
+	defaultBranch = main
