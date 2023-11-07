@@ -53,7 +53,8 @@ Plug 'rizzatti/dash.vim'
 Plug 'exu/pgsql.vim'
 Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-fugitive'
-Plug 'jberglinds/coc-jira-autocomplete', {'do': 'yarn install --frozen-lockfile'}
+
+" Plug 'jberglinds/coc-jira-autocomplete', {'do': 'yarn install --frozen-lockfile'}
 
 " Language specific
 Plug 'tpope/vim-dispatch', { 'for': 'clojure' }

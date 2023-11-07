@@ -1,6 +1,12 @@
 # remove annoying welcome message
 set fish_greeting ""
 
+source ~/dotfiles/fish/abbr.fish
+
+eval (/opt/homebrew/bin/brew shellenv fish)
+
+zoxide init fish | source
+
 set -x LANG "en_US.UTF-8"
 
 fish_add_path /opt/homebrew/bin
@@ -59,18 +65,7 @@ end
 # Use ripgrep for fzf by default
 set -x FZF_DEFAULT_COMMAND 'rg --files --hidden --follow -g "!{.git,node_modules}/*" 2> /dev/null'
 
-# fasd without args uses fzf
-function z
-	set -l dir (fasd -Rdl $argv[1] | fzf -1 -0 --no-sort +m); and cd $dir; return 1
-end
-
 # kill ports easily
-function killport
-	if set -q argv[1]
-		kill -9 (lsof -t -i:$argv[1])
-	end
-end
-
 function ...
 	cd ../.. $argv;
 end
@@ -116,3 +111,4 @@ end
 
 # Created by `pipx` on 2022-12-23 09:12:51
 set PATH $PATH /Users/jonathan/.local/bin
+
